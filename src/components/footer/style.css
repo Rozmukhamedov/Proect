@@ -1,0 +1,78 @@
+.footer {
+    background: #292929;
+    padding: 82px 0;
+}
+
+.footer__first img {
+    width: 230px;
+    height: 36.32px;
+}
+
+.footer .footer__first {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.footer p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.footer button {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #FFFFFF;
+    padding: 10px 15px;
+    background: #C40201;
+    margin-top: 32px;
+    border: none;
+}
+
+.footer h5 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #FFFFFF;
+    margin: 0;
+    margin-top: 16px;
+}
+
+.footer h5 svg {
+    margin-right: 10px;
+}
+
+.footer .footer__flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.footer .footer__flex button {
+    margin: 0;
+    border: 1px solid #C40201;
+    background: none;
+    margin-right: 20px;
+}
+
+.footer .footer__flex button:hover {
+    background: #C40201;
+}
+
+.footer .footer__flex .footer__icons svg {
+    margin-right: 20px;
+}

@@ -1,0 +1,47 @@
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px 0;
+}
+
+.header .header__flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .header__flex .header__flex-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header .header__flex .header__flex-left img {
+    width: 350px;
+    height: auto;
+}
+
+.header .header__flex .header__flex-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header .header__flex .header__flex-right p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    color: #FFFFFF;
+}
+
+.header .header__flex .header__flex-right p svg{
+    margin-right: 10px;
+}
