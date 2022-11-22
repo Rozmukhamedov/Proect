@@ -49,29 +49,34 @@ function Footer() {
         </Container>
       </div>
       <div className="footer__mobile">
+        <div className="scrool__top">
+          <TopIcon /> <p>Back to top</p>
+        </div>
         <Container>
-          <div>
-            <TopIcon /> Back to top
+          <div className="footer__column">
+            <img src={Logo} alt="logo" />
+            <p>Contact</p>
+            <p>Get in touch with us via mail phone.</p>
+            <h5>
+              <TelIcon /> +998 90 550 26 99
+            </h5>
+            <p>Address</p>
+            <p>
+              111500 Republic of Uzbekistan, <br /> Tashkent region, Nurafshon
+              city, <br />
+              str. Toshkent yo'li, 98
+            </p>
+            <Button className="btn__feedback">Feedback</Button>
+            <Button className="btn__email">Info@tmtsocks.uz</Button>
+            <div className="footer__icons">
+              <FacebookIcon />
+              <InstagramIcon />
+              <TelegramIcon />
+            </div>
+            <p>
+              Created by Erava Group <br /> © 2022
+            </p>
           </div>
-          <img src={Logo} alt="logo" />
-          <p>Contact</p>
-          <p>Get in touch with us via mail phone.</p>
-          <h5>
-            <TelIcon /> +998 90 550 26 99
-          </h5>
-          <p>Address</p>
-          <p>
-            111500 Republic of Uzbekistan, Tashkent region, Nurafshon city, str.
-            Toshkent yo'li, 98
-          </p>
-          <Button>Feedback</Button>
-          <Button>Info@tmtsocks.uz</Button>
-          <div className="footer__icons">
-            <FacebookIcon />
-            <InstagramIcon />
-            <TelegramIcon />
-          </div>
-          <p>Created by Erava Group <br />  © 2022</p>
         </Container>
       </div>
     </>
