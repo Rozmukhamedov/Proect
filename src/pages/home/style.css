@@ -34,7 +34,7 @@
 
 @media (max-width: 768px) {
     .home .home__hero {
-        height: 40vh;
+        height: 100vh;
     }
 }
 
@@ -66,6 +66,11 @@
     width: 100%;
     text-align: center;
     text-transform: capitalize;
+}
+
+.home .home__products .home__products-filter p.active {
+    color: #C40201;
+    font-weight: 700;
 }
 
 .home__sale {
@@ -105,7 +110,7 @@
     color: #FFFFFF;
 }
 
-.home__sale svg{
+.home__sale svg {
     display: none;
 }
 
@@ -113,9 +118,88 @@
     .home__sale {
         height: 100vh;
     }
-    .home__sale svg{
+
+    .home__sale svg {
         display: block;
         position: absolute;
         bottom: 60px;
+    }
+}
+
+.home .home__about {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 40px 0;
+}
+
+.home .home__about img {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 45%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.home .home__about h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #622B2B;
+    margin-top: 40px;
+    margin-bottom: 52px;
+}
+
+.home .home__about p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #5B5252;
+    margin-bottom: 42px;
+}
+
+.home .home__about button {
+    padding: 8px 35px;
+    background: none;
+    border: 1px solid #C40201;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #C40201;
+    margin-bottom: 80px;
+}
+
+.home .home__about button:hover {
+    background: #C40201;
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    .home .home__about img {
+        position: relative;
+        width: 100%;
+        top: 0;
+        height: auto;
+    }
+
+    .home .home__about h4 {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 32px;
+    }
+
+    .home .home__about p {
+        text-align: center;
+    }
+
+    .home .home__about button{
+        margin: 0 auto;
     }
 }

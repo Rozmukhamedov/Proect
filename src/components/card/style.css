@@ -30,3 +30,9 @@
     text-align: center;
     color: #C40201;
 }
+
+@media (max-width: 768px) {
+    .card img {
+        height: 210px;
+    }
+}

@@ -49,7 +49,7 @@ function Footer() {
         </Container>
       </div>
       <div className="footer__mobile">
-        <div className="scrool__top">
+        <div className="scrool__top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <TopIcon /> <p>Back to top</p>
         </div>
         <Container>
