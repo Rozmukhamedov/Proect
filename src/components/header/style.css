@@ -1,9 +1,31 @@
+.mantine-Paper-root {
+    background: rgba(196, 2, 1, 0.8);
+}
+
+.mantine-Drawer-header {
+    justify-content: start;
+}
+
+.mantine-UnstyledButton-root {
+    color: #FFFFFF;
+}
+
+.mantine-UnstyledButton-root:hover {
+    background: none;
+}
+
+.mantine-UnstyledButton-root svg {
+    width: 25px;
+    height: 25px;
+}
+
 .header {
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     padding: 30px 0;
+    z-index: 10;
 }
 
 .header .header__flex {
@@ -42,6 +64,50 @@
     color: #FFFFFF;
 }
 
-.header .header__flex .header__flex-right p svg{
+.header .header__flex .header__flex-right p svg {
     margin-right: 10px;
+}
+
+.header .header__flex .header__flex-right button {
+    background: none;
+    border: none;
+    margin-left: 20px;
+}
+
+.header__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+}
+
+.header__items .header__item {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 18px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+
+.header__items .header__item a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+@media (max-width: 992px) {
+    .header .header__flex .header__flex-left img{
+        width: 310px;
+    }
+    .header .header__flex .header__flex-right p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .header__flex .header__flex-right p {
+       display: none;
+    }
 }

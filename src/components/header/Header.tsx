@@ -1,10 +1,12 @@
-import "./style.css"
-import Logo from "assets/img/logo.svg"
+import "./style.css";
+import Logo from "assets/img/logo.svg";
 import Button from "components/button";
 import React, { useState } from "react";
 import { Container } from "@mantine/core";
 import { Group, Drawer } from "@mantine/core";
 import { ReactComponent as TelIcon } from "assets/img/icons/telephone.svg";
+import { ReactComponent as MenuIcon } from "assets/img/menu.svg";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [opened, setOpened] = useState(false);
@@ -13,7 +15,10 @@ function Header() {
       <Container>
         <div className="header__flex">
           <div className="header__flex-left">
-            <img src={Logo} alt="" />
+            <Link to="/">
+              <img src={Logo} alt="" />
+            </Link>
+
             <p>dropdiw</p>
           </div>
           <div className="header__flex-right">
@@ -21,7 +26,9 @@ function Header() {
               <TelIcon /> +998 90 550 26 99
             </p>
             <Group position="center">
-              <Button onClick={() => setOpened(true)}>Open Drawer</Button>
+              <Button onClick={() => setOpened(true)}>
+                <MenuIcon />
+              </Button>
             </Group>
           </div>
         </div>
@@ -29,11 +36,27 @@ function Header() {
       <Drawer
         opened={opened}
         onClose={() => setOpened(false)}
-        title="Register"
         padding="xl"
         size="xl"
+        position="right"
       >
-        {/* Drawer content */}
+        <ul className="header__items">
+          <li className="header__item">
+            <Link onClick={() => setOpened(false)} to="/about">
+              About
+            </Link>
+          </li>
+          <li className="header__item">
+            <Link onClick={() => setOpened(false)} to="/products">
+              Products
+            </Link>
+          </li>
+          <li className="header__item">
+            <Link onClick={() => setOpened(false)} to="/contact">
+              Contact
+            </Link>
+          </li>
+        </ul>
       </Drawer>
     </div>
   );

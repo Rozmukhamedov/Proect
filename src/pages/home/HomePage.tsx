@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Card from "components/card/Card";
 import { Container, Grid } from "@mantine/core";
 import Button from "components/button";
-import Image from "assets/img/image2.png"
+import Image from "assets/img/image2.png";
 import { ReactComponent as DownIcon } from "assets/img/Vector.svg";
 
 const data = [
@@ -41,6 +41,9 @@ function HomePage() {
             We welcome you <br />
             to our site
           </h3>
+          <DownIcon
+            onClick={() => window.scrollTo({ top: 1500, behavior: "smooth" })}
+          />
         </Container>
       </div>
       <div className="home__products">
