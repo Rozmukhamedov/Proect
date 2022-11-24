@@ -20,3 +20,85 @@
     color: #FFFFFF;
     margin-top: 70px;
 }
+
+.contact .contact__about {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+.contact .contact__about img {
+    position: absolute;
+    left: 0;
+    top: 45px;
+    width: 45%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.contact .contact__about h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #622B2B;
+    margin-bottom: 38px;
+}
+
+.contact .contact__about p {
+    margin-bottom: 50px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #5B5252;
+}
+
+.contact .contact__about .contact__networks svg {
+    margin: 0 10px;
+}
+
+.contact .contact__about .contact__networks svg path {
+    fill: #EE9695;
+}
+
+@media (max-width: 768px) {
+    .contact .contact__about img {
+        position: relative;
+        width: 100%;
+        top: 0;
+        height: auto;
+    }
+
+    .contact .contact__about h4 {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 32px;
+    }
+
+    .contact .contact__about p {
+        text-align: center;
+    }
+
+    .contact .contact__about .contact__description p {
+        width: 340px;
+    }
+
+    .contact .contact__about .contact__description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact .contact__about .contact__networks {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -2,6 +2,7 @@ import "./style.css";
 import React from "react";
 import Logo from "assets/img/logo.svg";
 import Button from "components/button";
+import { Link } from "react-router-dom";
 import { Container, Grid } from "@mantine/core";
 import { ReactComponent as TelIcon } from "assets/img/icons/telephone.svg";
 import { ReactComponent as FacebookIcon } from "assets/img/icons/Facebook.svg";
@@ -66,8 +67,8 @@ function Footer() {
               city, <br />
               str. Toshkent yo'li, 98
             </p>
-            <Button className="btn__feedback">Feedback</Button>
-            <Button className="btn__email">Info@tmtsocks.uz</Button>
+            <Button className="btn__feedback"><Link to="/about">Feedback</Link></Button>
+            <Button className="btn__email"><a href="mailto:Info@tmtsocks.uz">Info@tmtsocks.uz</a></Button>
             <div className="footer__icons">
               <FacebookIcon />
               <InstagramIcon />

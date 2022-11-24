@@ -21,7 +21,7 @@
     color: #FFFFFF;
 }
 
-.home .home__hero svg{
+.home .home__hero svg {
     position: absolute;
     display: none;
     bottom: 30px;
@@ -45,7 +45,8 @@
     .home .home__hero {
         height: 100vh;
     }
-    .home .home__hero svg{
+
+    .home .home__hero svg {
         display: block;
     }
 }
@@ -184,13 +185,13 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 18px;
-    color: #C40201;
     margin-bottom: 80px;
+    color: #C40201;
 }
 
-.home .home__about button:hover {
-    background: #C40201;
-    color: #FFFFFF;
+.home .home__about button a {
+    color: #C40201;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -211,7 +212,7 @@
         text-align: center;
     }
 
-    .home .home__about button{
+    .home .home__about button {
         margin: 0 auto;
     }
 }

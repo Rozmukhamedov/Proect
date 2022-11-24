@@ -23,7 +23,7 @@ function Header() {
           </div>
           <div className="header__flex-right">
             <p>
-              <TelIcon /> +998 90 550 26 99
+              <TelIcon /> <a href="tel: +998 90 550 26 99">+998 90 550 26 99</a>
             </p>
             <Group position="center">
               <Button onClick={() => setOpened(true)}>

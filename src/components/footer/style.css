@@ -159,6 +159,11 @@
     margin: 15px 0;
 }
 
+.footer__mobile .footer__column .btn__feedback a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .footer__mobile .footer__column .btn__email {
     background: none;
     font-family: 'Montserrat';
@@ -171,6 +176,11 @@
     width: 200px;
     border: 1px solid #C40201;
     margin-bottom: 15px;
+}
+
+.footer__mobile .footer__column .btn__email a{
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .footer__mobile .footer__column .footer__icons{

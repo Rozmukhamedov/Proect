@@ -1,9 +1,12 @@
 import "./style.css";
+import Button from "components/button";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import Card from "components/card/Card";
-import { Container, Grid } from "@mantine/core";
-import Button from "components/button";
 import Image from "assets/img/image2.png";
+import { Container, Grid } from "@mantine/core";
+import useCustomFetcher from "hooks/useCustomFetcher";
+import { BASEURL } from "constants/applicationConstants";
 import { ReactComponent as DownIcon } from "assets/img/Vector.svg";
 
 const data = [
@@ -32,6 +35,23 @@ const filers = ["men", "women", "teenagers", "kids", "home slippers", "sport"];
 
 function HomePage() {
   const [filterSearch, setFilterSearch] = useState("");
+
+  const [error, isLoading, fethcer] = useCustomFetcher();
+
+  // const getProduct = () => {
+  //   const requestOptions = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
+
+  //   fethcer(
+  //     (response: any) => console.log("response"),
+  //     `${BASEURL}/new/items/`,
+  //     requestOptions
+  //   );
+  // };
 
   return (
     <div className="home">
@@ -79,7 +99,7 @@ function HomePage() {
         <Button>SEASON SALE</Button>
         <h4>UP TO 30% OFF</h4>
         <DownIcon
-          onClick={() => window.scrollTo({ top: 1500, behavior: "smooth" })}
+          onClick={() => window.scrollTo({ top: 2300, behavior: "smooth" })}
         />
       </div>
       <div className="home__about">
@@ -100,7 +120,9 @@ function HomePage() {
                 needs for hosiery products, made according to the corporate
                 style and the wishes of customers.
               </p>
-              <Button type="button">Contact us</Button>
+              <Button type="button">
+                <Link to="contact">Contact us</Link>
+              </Button>
             </Grid.Col>
           </Grid>
         </Container>

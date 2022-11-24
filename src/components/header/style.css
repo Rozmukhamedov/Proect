@@ -64,6 +64,11 @@
     color: #FFFFFF;
 }
 
+.header .header__flex .header__flex-right p a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .header .header__flex .header__flex-right p svg {
     margin-right: 10px;
 }
@@ -107,6 +112,10 @@
 }
 
 @media (max-width: 768px) {
+    .header .header__flex .header__flex-left img{
+        width: 260px;
+    }
+
     .header .header__flex .header__flex-right p {
        display: none;
     }
