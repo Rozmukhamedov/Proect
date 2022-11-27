@@ -1,12 +1,11 @@
 import "./style.css";
+import useAxios from "hooks/useAxios";
 import Button from "components/button";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "components/card/Card";
 import Image from "assets/img/image2.png";
 import { Container, Grid } from "@mantine/core";
-import useCustomFetcher from "hooks/useCustomFetcher";
-import { BASEURL } from "constants/applicationConstants";
 import { ReactComponent as DownIcon } from "assets/img/Vector.svg";
 
 const data = [
@@ -35,23 +34,18 @@ const filers = ["men", "women", "teenagers", "kids", "home slippers", "sport"];
 
 function HomePage() {
   const [filterSearch, setFilterSearch] = useState("");
+  const [products, setProducts] = useState<any>([])
 
-  const [error, isLoading, fethcer] = useCustomFetcher();
+  const { response, loading, error } = useAxios({
+    method: "get",
+    url: "/new/items/",
+  });
 
-  // const getProduct = () => {
-  //   const requestOptions = {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-
-  //   fethcer(
-  //     (response: any) => console.log("response"),
-  //     `${BASEURL}/new/items/`,
-  //     requestOptions
-  //   );
-  // };
+  useEffect(() => {
+    if (response !== null) {
+      setProducts(response);
+    }
+}, [response]);
 
   return (
     <div className="home">
@@ -72,7 +66,7 @@ function HomePage() {
           <Container size={"md"}>
             <div className="home__products-filter">
               <Grid>
-                {filers.map((filter: string) => (
+                {filers?.map((filter: string) => (
                   <Grid.Col key={filter} sm={2} span={4}>
                     <p
                       className={`${filter === filterSearch ? "active" : null}`}
@@ -87,9 +81,9 @@ function HomePage() {
           </Container>
 
           <Grid>
-            {data.map((d: any, index: number) => (
+            {products?.results?.slice(0, 8)?.map((d: any, index: number) => (
               <Grid.Col key={index} sm={3} span={6}>
-                <Card img={d.img} title={d.title} text={d.text} />
+                <Card id={d?.product?.id} img={d?.product?.image} title={d?.product?.model} text={d?.product?.price} />
               </Grid.Col>
             ))}
           </Grid>

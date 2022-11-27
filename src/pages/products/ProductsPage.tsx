@@ -1,84 +1,18 @@
 import "./style.css";
-import React, { useState } from "react";
+import useAxios from "hooks/useAxios";
 import Card from "components/card/Card";
+import { useSearchParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { Container, Grid, Pagination } from "@mantine/core";
 
 function ProductsPage() {
+  let [searchParams, setSearchParams] = useSearchParams();
   const [filterSearch, setFilterSearch] = useState("");
-  const data = [
-    {
-      id: 1,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 2,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 3,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 4,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 5,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 6,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 7,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 8,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 9,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 10,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 11,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 12,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-  ];
+  const [products, setProducts] = useState<any>([]);
+  const [page, setPage] = useState(
+    !!searchParams.get("page") ? searchParams.get("page") : 1
+  );
+
   const filers = [
     "men",
     "women",
@@ -88,6 +22,26 @@ function ProductsPage() {
     "sport",
   ];
 
+  const handleTitle = (event: any) => {
+    setSearchParams({ page: event });
+    setPage(event);
+  };
+
+  const { response, loading, error } = useAxios({
+    method: "get",
+    url: `/new/items/?page=${page}`,
+    params: page,
+  });
+
+  useEffect(() => {
+    if (response !== null) {
+      setProducts(response);
+    }
+    window.scroll({
+      top: 0,
+    });
+  }, [response]);
+  console.log(products)
   return (
     <div className="products">
       <div className="products__hero">
@@ -114,13 +68,22 @@ function ProductsPage() {
       <div className="products__items">
         <Container>
           <Grid>
-            {data.map((d: any, index: number) => (
+            {products?.results?.map((d: any, index: number) => (
               <Grid.Col key={index} sm={3} span={6}>
-                <Card img={d.img} title={d.title} text={d.text} />
+                <Card
+                  id={d?.product?.id}
+                  img={d?.product?.image}
+                  title={d?.product?.model}
+                  text={d?.product?.price}
+                />
               </Grid.Col>
             ))}
           </Grid>
-          <Pagination total={3} className="pagination"/>
+          <Pagination
+            total={products.total_pages}
+            onChange={(e) => handleTitle(e)}
+            className="pagination"
+          />
         </Container>
       </div>
     </div>

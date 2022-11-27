@@ -23,7 +23,7 @@
 
 .home .home__hero svg {
     position: absolute;
-    display: none;
+    display: block;
     bottom: 30px;
     left: 50%;
     right: 50%;
