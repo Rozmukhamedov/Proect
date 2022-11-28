@@ -1,6 +1,7 @@
 import "./style.css";
 import Logo from "assets/img/logo.svg";
 import Button from "components/button";
+import Select from "components/select";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "@mantine/core";
@@ -8,10 +9,26 @@ import { Group, Drawer } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { ReactComponent as TelIcon } from "assets/img/icons/telephone.svg";
 import { ReactComponent as MenuIcon } from "assets/img/menu.svg";
+import UKIcon from "assets/img/uk.svg";
 
 function Header() {
   const [opened, setOpened] = useState(false);
-  const { t } = useTranslation();
+  const [lng, setLng] = useState(
+    localStorage.getItem("i18nextLng") === "ru"
+      ? { icon: UKIcon, value: "ru" }
+      : { icon: UKIcon, value: "en" }
+  );
+  const { t, i18n } = useTranslation();
+
+  const changeLanguageHandler = (lang: any) => {
+    i18n.changeLanguage(lang.value);
+    setLng(lang);
+  };
+
+  const data = [
+    { icon: UKIcon, value: "en" },
+    { icon: UKIcon, value: "ru" },
+  ];
 
   return (
     <div className="header">
@@ -21,8 +38,7 @@ function Header() {
             <Link to="/">
               <img src={Logo} alt="" />
             </Link>
-
-            <p>dropdiw</p>
+            <Select data={data} value={lng} onChange={changeLanguageHandler} />
           </div>
           <div className="header__flex-right">
             <p>
@@ -46,12 +62,12 @@ function Header() {
         <ul className="header__items">
           <li className="header__item">
             <Link onClick={() => setOpened(false)} to="/about">
-            {t("about")}
+              {t("about")}
             </Link>
           </li>
           <li className="header__item">
             <Link onClick={() => setOpened(false)} to="/products">
-            {t("products")}
+              {t("products")}
             </Link>
           </li>
           <li className="header__item">
