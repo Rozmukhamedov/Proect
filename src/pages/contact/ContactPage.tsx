@@ -2,17 +2,19 @@ import "./style.css";
 import React from "react";
 import Button from "components/button";
 import Image from "assets/img/map.png";
+import { useTranslation } from "react-i18next";
 import { Container, Grid } from "@mantine/core";
 import { ReactComponent as FacebookIcon } from "assets/img/icons/Facebook.svg";
 import { ReactComponent as InstagramIcon } from "assets/img/icons/Instagram.svg";
 import { ReactComponent as TelegramIcon } from "assets/img/icons/Path.svg";
 
 function ContactPage() {
+  const { t } = useTranslation();
   return (
     <div className="contact">
       <div className="contact__hero">
         <Container>
-          <h3>Contact Us</h3>
+          <h3>{t("contact_us")}</h3>
         </Container>
       </div>
 
@@ -24,11 +26,8 @@ function ContactPage() {
             </Grid.Col>
             <Grid.Col sm={6} span={12}>
               <div className="contact__description">
-                <h4>About us</h4>
-                <p>
-                  111500 Republic of Uzbekistan, Tashkent region, Nurafshon
-                  city, str. Toshkent yo'li, 98ы
-                </p>
+                <h4>{t("about_us")}</h4>
+                <p>{t("address_title")}</p>
               </div>
               <div className="contact__data">
                 <h4>E-mail</h4>
@@ -38,7 +37,7 @@ function ContactPage() {
                 </p>
               </div>
               <div className="contact__networks">
-                <h4>Social networks</h4>
+                <h4>{t("social_networks")}</h4>
                 <div>
                   <FacebookIcon />
                   <InstagramIcon />

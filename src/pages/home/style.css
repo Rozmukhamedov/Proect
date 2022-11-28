@@ -111,6 +111,7 @@
     padding: 15px 23px;
     border: none;
     margin-bottom: 17px;
+    text-transform: uppercase;
 }
 
 .home__sale h4 {
@@ -187,6 +188,7 @@
     line-height: 18px;
     margin-bottom: 80px;
     color: #C40201;
+    text-transform: capitalize;
 }
 
 .home .home__about button a {

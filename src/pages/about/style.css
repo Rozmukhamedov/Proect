@@ -19,6 +19,7 @@
     text-align: center;
     color: #FFFFFF;
     margin-top: 70px;
+    text-transform: capitalize;
 }
 
 .about .about__about-1 {
@@ -127,7 +128,7 @@
 }
 
 @media (max-width: 768px) {
-    .about .about__texts{
+    .about .about__texts {
         padding: 0;
         padding-bottom: 130px;
     }

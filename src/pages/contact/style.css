@@ -19,6 +19,7 @@
     text-align: center;
     color: #FFFFFF;
     margin-top: 70px;
+    text-transform: capitalize;
 }
 
 .contact .contact__about {

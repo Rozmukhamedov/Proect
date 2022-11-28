@@ -2,36 +2,12 @@ import "./style.css";
 import useAxios from "hooks/useAxios";
 import Card from "components/card/Card";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Container, Grid } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 
 function ProductPage() {
-  const data = [
-    {
-      id: 1,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 2,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 3,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-    {
-      id: 4,
-      img: "https://www.w3schools.com/html/pic_trulli.jpg",
-      title: "MS-28AW18",
-      text: "20 000",
-    },
-  ];
+  const { t } = useTranslation();
   const [product, setProduct] = useState<any>(null);
   const { id } = useParams();
   const { response, loading, error } = useAxios({
@@ -53,12 +29,12 @@ function ProductPage() {
     <div className="product">
       <div className="product__hero">
         <Container>
-          <h3>Products</h3>
+          <h3>{t("products")}</h3>
         </Container>
       </div>
       <div className="product__url">
         <Container>
-          <p>Products › Men socks › {product?.model} </p>
+          <p>{t("products")} › Men socks › {product?.model} </p>
         </Container>
       </div>
       <div className="product__info">
@@ -73,11 +49,11 @@ function ProductPage() {
                 <p>{product?.price} sum</p>
               </div>
               <div className="product__info-size">
-                <h5>Size</h5>
+                <h5>{t("size")}</h5>
                 <p>{product?.size}</p>
               </div>
               <div className="product__info-description">
-                <h5>Product details</h5>
+                <h5>{t("product_details")}</h5>
                 <p>
                   {product?.category_data?.name} <br /> <br />
                 </p>
@@ -113,7 +89,7 @@ function ProductPage() {
       </div>
       <div className="product__items">
         <Container>
-          <h3>RELATED PRODUCTS</h3>
+          <h3>{t("related_products")}</h3>
           <Grid>
             {product?.related_products?.map((d: any, index: number) => (
               <Grid.Col key={index} sm={3} span={6}>

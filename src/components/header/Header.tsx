@@ -2,14 +2,17 @@ import "./style.css";
 import Logo from "assets/img/logo.svg";
 import Button from "components/button";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Container } from "@mantine/core";
 import { Group, Drawer } from "@mantine/core";
+import { useTranslation } from "react-i18next";
 import { ReactComponent as TelIcon } from "assets/img/icons/telephone.svg";
 import { ReactComponent as MenuIcon } from "assets/img/menu.svg";
-import { Link } from "react-router-dom";
 
 function Header() {
   const [opened, setOpened] = useState(false);
+  const { t } = useTranslation();
+
   return (
     <div className="header">
       <Container>
@@ -43,17 +46,17 @@ function Header() {
         <ul className="header__items">
           <li className="header__item">
             <Link onClick={() => setOpened(false)} to="/about">
-              About
+            {t("about")}
             </Link>
           </li>
           <li className="header__item">
             <Link onClick={() => setOpened(false)} to="/products">
-              Products
+            {t("products")}
             </Link>
           </li>
           <li className="header__item">
             <Link onClick={() => setOpened(false)} to="/contact">
-              Contact
+              {t("contact")}
             </Link>
           </li>
         </ul>

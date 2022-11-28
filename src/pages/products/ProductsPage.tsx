@@ -1,18 +1,19 @@
 import "./style.css";
 import useAxios from "hooks/useAxios";
 import Card from "components/card/Card";
+import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Container, Grid, Pagination } from "@mantine/core";
 
 function ProductsPage() {
+  const { t } = useTranslation();
   let [searchParams, setSearchParams] = useSearchParams();
   const [filterSearch, setFilterSearch] = useState("");
   const [products, setProducts] = useState<any>([]);
   const [page, setPage] = useState(
     !!searchParams.get("page") ? searchParams.get("page") : 1
   );
-
   const filers = [
     "men",
     "women",
@@ -41,12 +42,12 @@ function ProductsPage() {
       top: 0,
     });
   }, [response]);
-  console.log(products)
+
   return (
     <div className="products">
       <div className="products__hero">
         <Container>
-          <h3>Products</h3>
+          <h3>{t("products")}</h3>
         </Container>
       </div>
       <div className="products__filter">
