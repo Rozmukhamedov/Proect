@@ -31,6 +31,7 @@
     line-height: 50px;
     text-align: center;
     color: #FFFFFF;
+    text-transform: capitalize;
 }
 
 .products .products__filter {

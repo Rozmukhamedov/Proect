@@ -1,6 +1,7 @@
 import "./style.css";
 import useAxios from "hooks/useAxios";
 import Card from "components/card/Card";
+import CLoader from "components/loader";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
@@ -9,26 +10,31 @@ import { Container, Grid, Pagination } from "@mantine/core";
 function ProductsPage() {
   const { t } = useTranslation();
   let [searchParams, setSearchParams] = useSearchParams();
-  const [filterSearch, setFilterSearch] = useState("");
+  const [filterSearch, setFilterSearch] = useState<any>("");
   const [products, setProducts] = useState<any>([]);
+  const [filters, setfilters] = useState<any>([]);
+
   const [page, setPage] = useState(
     !!searchParams.get("page") ? searchParams.get("page") : 1
   );
-  const filers = [
-    "men",
-    "women",
-    "teenagers",
-    "kids",
-    "home slippers",
-    "sport",
-  ];
+
+  const [respDescr, respLoading, respError] = useAxios({
+    method: "get",
+    url: `/categories/?lan=${t("lng")}`,
+  });
+
+  useEffect(() => {
+    if (respDescr !== null) {
+      setfilters(respDescr);
+    }
+  }, [respDescr]);
 
   const handleTitle = (event: any) => {
     setSearchParams({ page: event });
     setPage(event);
   };
 
-  const { response, loading, error } = useAxios({
+  const [response, loading, error] = useAxios({
     method: "get",
     url: `/new/items/?page=${page}`,
     params: page,
@@ -43,6 +49,8 @@ function ProductsPage() {
     });
   }, [response]);
 
+  if (loading === true) return <CLoader />;
+
   return (
     <div className="products">
       <div className="products__hero">
@@ -52,14 +60,18 @@ function ProductsPage() {
       </div>
       <div className="products__filter">
         <Container size={"md"}>
-          <Grid>
-            {filers.map((filter: string) => (
-              <Grid.Col className="col" key={filter} sm={2} span={4}>
+          <Grid justify={"center"}>
+            {filters?.results?.map((filter: any) => (
+              <Grid.Col className="col" key={filter?.id} sm={2} span={4}>
                 <p
-                  onClick={() => setFilterSearch(filter)}
-                  className={`${filter === filterSearch ? "active" : null}`}
+                  onClick={() =>
+                    setFilterSearch({ name: filter?.name, id: filter.id })
+                  }
+                  className={`${
+                    filter?.id === filterSearch?.id ? "active" : null
+                  }`}
                 >
-                  {filter}
+                  {filter?.name}
                 </p>
               </Grid.Col>
             ))}
