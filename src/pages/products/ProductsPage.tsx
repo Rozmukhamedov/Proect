@@ -36,7 +36,7 @@ function ProductsPage() {
 
   const [response, loading, error] = useAxios({
     method: "get",
-    url: `/new/items/?page=${page}`,
+    url: `/products/?page=${page}&category=${searchParams.get("category_id")}`,
     params: page,
   });
 
@@ -64,9 +64,10 @@ function ProductsPage() {
             {filters?.results?.map((filter: any) => (
               <Grid.Col className="col" key={filter?.id} sm={2} span={4}>
                 <p
-                  onClick={() =>
-                    setFilterSearch({ name: filter?.name, id: filter.id })
-                  }
+                  onClick={() => {
+                    setFilterSearch({ name: filter?.name, id: filter.id });
+                    setSearchParams({ category_id: filter.id });
+                  }}
                   className={`${
                     filter?.id === filterSearch?.id ? "active" : null
                   }`}
@@ -84,10 +85,10 @@ function ProductsPage() {
             {products?.results?.map((d: any, index: number) => (
               <Grid.Col key={index} sm={3} span={6}>
                 <Card
-                  id={d?.product?.id}
-                  img={d?.product?.image}
-                  title={d?.product?.model}
-                  text={d?.product?.price}
+                  id={d?.id}
+                  img={d?.image}
+                  title={d?.model}
+                  text={d?.price}
                 />
               </Grid.Col>
             ))}

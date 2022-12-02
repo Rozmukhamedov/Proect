@@ -58,7 +58,7 @@
 
 .product .product__info img {
     width: 100%;
-    min-height: 300px;
+    min-height: 360px;
     object-fit: cover;
 }
 

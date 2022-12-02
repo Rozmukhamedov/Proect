@@ -76,10 +76,10 @@ function HomePage() {
           <Slider {...settings}>
             {filters?.results?.map((filter: any) => (
               <div key={filter?.title} className="carousel_slider">
-                <div className="border">
-                  <img src={filter?.image} alt="" />
+                <Link to={`/products?category_id=${filter.id}`} className="border">
+                  <img src={filter?.image} alt={filter.title} />
                   <h4>{filter?.title}</h4>
-                </div>
+                </Link>
               </div>
             ))}
           </Slider>
