@@ -138,6 +138,11 @@
     margin: 24px auto;
 }
 
+.home .home__products .home__products-filter a{
+    color: #2A2A2A;
+    text-decoration: none;
+}
+
 .home .home__products .home__products-filter p {
     font-family: 'Montserrat';
     font-style: normal;

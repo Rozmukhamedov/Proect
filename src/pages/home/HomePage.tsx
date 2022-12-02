@@ -76,7 +76,10 @@ function HomePage() {
           <Slider {...settings}>
             {filters?.results?.map((filter: any) => (
               <div key={filter?.title} className="carousel_slider">
-                <Link to={`/products?category_id=${filter.id}`} className="border">
+                <Link
+                  to={`/products?category_id=${filter.id}`}
+                  className="border"
+                >
                   <img src={filter?.image} alt={filter.title} />
                   <h4>{filter?.title}</h4>
                 </Link>
@@ -93,16 +96,18 @@ function HomePage() {
               <Grid justify={"center"}>
                 {filters?.results?.map((filter: any) => (
                   <Grid.Col key={filter?.id} sm={2} span={4}>
-                    <p
-                      className={`${
-                        filter?.id === filterSearch?.id ? "active" : null
-                      }`}
-                      onClick={() =>
-                        setFilterSearch({ name: filter?.name, id: filter.id })
-                      }
-                    >
-                      {filter?.name}
-                    </p>
+                    <Link to={`/products?category_id=${filter?.id}`}>
+                      <p
+                        className={`${
+                          filter?.id === filterSearch?.id ? "active" : null
+                        }`}
+                        onClick={() =>
+                          setFilterSearch({ name: filter?.name, id: filter.id })
+                        }
+                      >
+                        {filter?.name}
+                      </p>
+                    </Link>
                   </Grid.Col>
                 ))}
               </Grid>
