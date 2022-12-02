@@ -10,12 +10,13 @@ import { useTranslation } from "react-i18next";
 import { ReactComponent as TelIcon } from "assets/img/icons/telephone.svg";
 import { ReactComponent as MenuIcon } from "assets/img/menu.svg";
 import UKIcon from "assets/img/uk.svg";
+import RUIcon from "assets/img/russia.svg";
 
 function Header() {
   const [opened, setOpened] = useState(false);
   const [lng, setLng] = useState(
     localStorage.getItem("i18nextLng") === "ru"
-      ? { icon: UKIcon, value: "ru" }
+      ? { icon: RUIcon, value: "ru" }
       : { icon: UKIcon, value: "en" }
   );
   const { t, i18n } = useTranslation();
@@ -27,7 +28,7 @@ function Header() {
 
   const data = [
     { icon: UKIcon, value: "en" },
-    { icon: UKIcon, value: "ru" },
+    { icon: RUIcon, value: "ru" },
   ];
 
   return (
