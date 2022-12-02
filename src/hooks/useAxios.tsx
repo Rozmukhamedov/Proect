@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-axios.defaults.baseURL = 'http://ec2-3-113-19-2.ap-northeast-1.compute.amazonaws.com';
+axios.defaults.baseURL = 'https://system.tmtsocks.uz';
 type Methods = "head" | "options" | "put" | "post" | "patch" | "delete" | "get";
 
 
