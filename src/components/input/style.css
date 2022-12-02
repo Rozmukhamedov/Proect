@@ -1,3 +1,16 @@
-.custom__input{
-    
+.custom__input {
+    border-bottom: 1px solid #ffffff;
+}
+
+.custom__input input {
+    font-family: 'Montserrat' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    color: #FFFFFF !important;
+}
+
+.custom__input input::placeholder {
+    color: #ffffff !important;
 }

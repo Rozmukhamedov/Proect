@@ -17,6 +17,16 @@ const settings = {
   speed: 500,
   slidesToShow: 2,
   slidesToScroll: 2,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        slidesPerRow: 2,
+      },
+    },
+  ],
 };
 
 function HomePage() {

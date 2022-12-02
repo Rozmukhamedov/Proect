@@ -1,5 +1,6 @@
 import "./style.css";
 import React from "react";
+import Form from "components/form/Form";
 import Image1 from "assets/img/image1.png";
 import Image2 from "assets/img/image2.png";
 import { useTranslation } from "react-i18next";
@@ -61,11 +62,15 @@ function AboutPage() {
           <div className="about__text">
             <h4>{t("about_text_10")}</h4>
             <p>
-              {t("about_text_11")} <br /> {t("about_text_12")} <br /> {t("about_text_13")} <br /> {t("about_text_14")} <br />
-             {t("about_text_15")} <br /> {t("about_text_16")}
+              {t("about_text_11")} <br /> {t("about_text_12")} <br />{" "}
+              {t("about_text_13")} <br /> {t("about_text_14")} <br />
+              {t("about_text_15")} <br /> {t("about_text_16")}
             </p>
           </div>
         </Container>
+      </div>
+      <div className="about__form">
+        <Form />
       </div>
     </div>
   );

@@ -1,0 +1,53 @@
+.form h3 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+.form .form__input {
+    margin-bottom: 20px;
+}
+
+.form button {
+    background: #FF0000;
+    padding: 13px 48px;
+    border: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #F5F5F5;
+    margin: 40px auto 20px;
+}
+
+.form textarea {
+    background: none !important;
+    border: none;
+    border-bottom: 1px solid #FFFFFF;
+    font-family: 'Montserrat' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    color: #FFFFFF !important;
+}
+
+.form textarea::placeholder {
+    font-family: 'Montserrat' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    color: #FFFFFF !important;
+}
+
+.form textarea:active{
+    border-bottom: 1px solid #FFFFFF !important;
+}

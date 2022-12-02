@@ -127,6 +127,12 @@
     color: #5B5252;
 }
 
+.about .about__form {
+    width: 100%;
+    background: #AB3331;
+    padding: 50px 0 30px;
+}
+
 @media (max-width: 768px) {
     .about .about__texts {
         padding: 0;

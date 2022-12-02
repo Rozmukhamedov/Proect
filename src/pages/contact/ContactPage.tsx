@@ -2,6 +2,7 @@ import "./style.css";
 import React from "react";
 import Button from "components/button";
 import Image from "assets/img/map.png";
+import Form from "components/form/Form";
 import { useTranslation } from "react-i18next";
 import { Container, Grid } from "@mantine/core";
 import { ReactComponent as FacebookIcon } from "assets/img/icons/Facebook.svg";
@@ -47,6 +48,9 @@ function ContactPage() {
             </Grid.Col>
           </Grid>
         </Container>
+      </div>
+      <div className="contact__form">
+        <Form />
       </div>
     </div>
   );

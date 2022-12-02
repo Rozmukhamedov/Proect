@@ -13,7 +13,7 @@ type CustomInputProps = {
   invalid?: boolean;
   component?: string;
   type?: string;
-  register?: any;
+  form?: any;
   required?: boolean;
   name?: string;
   error?: any;
@@ -30,7 +30,7 @@ const CustomInput: FC<CustomInputProps> = ({
   invalid,
   component,
   type,
-  register,
+  form,
   required,
   name,
   error,
@@ -48,7 +48,7 @@ const CustomInput: FC<CustomInputProps> = ({
       rightSection={rightSection}
       component={component}
       error={error}
-      {...register(name, { required })}
+      {...form.getInputProps(name)}
     />
   );
 };
