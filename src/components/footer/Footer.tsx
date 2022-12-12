@@ -13,6 +13,7 @@ import { ReactComponent as TopIcon } from "assets/img/top.svg";
 
 function Footer() {
   const { t } = useTranslation();
+
   return (
     <>
       <div className="footer">
@@ -30,7 +31,9 @@ function Footer() {
               <p>
                 {t("address")} <br /> {t("address_title")}
               </p>
-              <Button>{t("feedback")}</Button>
+              <Button className="btn__feedback">
+                <Link to="/about">{t("feedback")}</Link>
+              </Button>
             </Grid.Col>
             <Grid.Col span={4}>
               <p>{t("contact")}</p>
@@ -39,7 +42,9 @@ function Footer() {
                 <TelIcon /> +998 90 550 26 99
               </h5>
               <div className="footer__flex">
-                <Button>Info@tmtsocks.uz</Button>
+                <Link to={"/about"}>
+                  <Button className="btn__email">Info@tmtsocks.uz</Button>
+                </Link>
                 <div className="footer__icons">
                   <FacebookIcon />
                   <InstagramIcon />
@@ -51,20 +56,27 @@ function Footer() {
         </Container>
       </div>
       <div className="footer__mobile">
-        <div className="scrool__top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+        <div
+          className="scrool__top"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
           <TopIcon /> <p>{t("back_to_top")}</p>
         </div>
         <Container>
           <div className="footer__column">
             <img src={Logo} alt="logo" />
             <p>{t("contact")}</p>
-              <p>{t("contact_title")}</p>
+            <p>{t("contact_title")}</p>
             <h5>
               <TelIcon /> +998 90 550 26 99
             </h5>
             {t("address")} <br /> {t("address_title")}
-            <Button className="btn__feedback"><Link to="/about">{t("feedback")}</Link></Button>
-            <Button className="btn__email"><a href="mailto:Info@tmtsocks.uz">Info@tmtsocks.uz</a></Button>
+            <Button className="btn__feedback">
+              <Link to="/about">{t("feedback")}</Link>
+            </Button>
+            <Link to={"/about"}>
+              <Button className="btn__email">Info@tmtsocks.uz</Button>
+            </Link>
             <div className="footer__icons">
               <FacebookIcon />
               <InstagramIcon />
