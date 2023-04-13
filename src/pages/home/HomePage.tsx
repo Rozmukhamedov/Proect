@@ -16,26 +16,34 @@ import { ReactComponent as ArrowRight } from "assets/img/arrows/Arrow2.svg";
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-    <div
+    <ArrowLeft
       className={className}
-      style={{ ...style, top: "410px", right: "400px", display: "block" }}
+      style={{
+        ...style,
+        top: "428px",
+        right: "400px",
+        display: "block",
+        zIndex: 20,
+      }}
       onClick={onClick}
-    >
-      <ArrowLeft />
-    </div>
+    />
   );
 }
 
 function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-    <div
+    <ArrowRight
       className={className}
-      style={{ ...style, top: "410px", left: "400px", display: "block" }}
+      style={{
+        ...style,
+        top: "428px",
+        left: "400px",
+        display: "block",
+        zIndex: 20,
+      }}
       onClick={onClick}
-    >
-      <ArrowRight />
-    </div>
+    />
   );
 }
 
