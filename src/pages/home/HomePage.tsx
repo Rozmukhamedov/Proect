@@ -10,6 +10,34 @@ import { useTranslation } from "react-i18next";
 import { Container, Grid } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import { ReactComponent as DownIcon } from "assets/img/Vector.svg";
+import { ReactComponent as ArrowLeft } from "assets/img/arrows/Arrow1.svg";
+import { ReactComponent as ArrowRight } from "assets/img/arrows/Arrow2.svg";
+
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, top: "410px", right: "400px", display: "block" }}
+      onClick={onClick}
+    >
+      <ArrowLeft />
+    </div>
+  );
+}
+
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, top: "410px", left: "400px", display: "block" }}
+      onClick={onClick}
+    >
+      <ArrowRight />
+    </div>
+  );
+}
 
 const settings = {
   dots: true,
@@ -17,6 +45,8 @@ const settings = {
   speed: 500,
   slidesToShow: 2,
   slidesToScroll: 2,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
   responsive: [
     {
       breakpoint: 768,
