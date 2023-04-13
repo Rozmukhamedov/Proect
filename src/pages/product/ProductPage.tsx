@@ -2,7 +2,7 @@ import "./style.css";
 import useAxios from "hooks/useAxios";
 import Card from "components/card/Card";
 import CLoader from "components/loader";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Container, Grid } from "@mantine/core";
 import React, { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ function ProductPage() {
   const { t } = useTranslation();
   const [product, setProduct] = useState<any>(null);
   const { id } = useParams();
-  const [ response, loading, error ] = useAxios({
+  const [response, loading, error] = useAxios({
     method: "get",
     url: `/products/${id}?lan=${t("lng")}`,
     params: id,
@@ -25,12 +25,10 @@ function ProductPage() {
     window.scroll({
       top: 0,
     });
-
-    
   }, [response]);
 
   if (loading === true) return <CLoader />;
-  console.log(product)
+  console.log(product?.category_data);
   return (
     <div className="product">
       <div className="product__hero">
@@ -41,7 +39,11 @@ function ProductPage() {
       <div className="product__url">
         <Container>
           <p>
-            {t("products")} › {product?.category_data?.name} › {product?.model}{" "}
+            {t("products")} ›{" "}
+            <Link to={`/products?category_id=${product?.category_data?.id}`}>
+              {product?.category_data?.name}
+            </Link>{" "}
+            › {product?.model}{" "}
           </p>
         </Container>
       </div>
